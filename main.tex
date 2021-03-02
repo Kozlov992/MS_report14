@@ -187,13 +187,21 @@ $K(u)$ - ядро, т. е. непрерывная функция, являюща
 \end{equation}
 где $\hat{\sigma}$ - выборочное стандартное отклонение.
 \section{Реализация}
-Лабораторная работа выполнена на языке Python в средах PyCharm и Jupyter Notebook с использованием следующих библиотек:
-\begin{enumerate}
-    \item scipy (генерация выборок)
-    \item statsmodels (построение э. ф. р.)
-    \item matplotlib, seaborn (визуализация, построение гистограмм и боксплотов)
-    \item numpy (вычисление ряда числовых характеристик)
+Лабораторная работа выполнена на языках Python и R в средах PyCharm, Jupyter Notebook, R Studio с использованием следующих библиотек:
+\begin{itemize}
+    \item Python:
+    \begin{enumerate}
+        \item scipy (генерация выборок)
+        \item statsmodels (построение э. ф. р.)
+        \item matplotlib, seaborn (визуализация, построение гистограмм и боксплотов)
+        \item numpy (вычисление ряда числовых характеристик)
+    \end{enumerate}
+    \item R:
+    \begin{enumerate}
+        \item kmlShape (нахождение дискретного расстояния Фреше)
+        \item kableExtra (оформление)
 \end{enumerate}
+\end{itemize}
 \section{Результаты}
 \subsection{Гистограммы и графики плотности распределения}
 \begin{figure}[H]
@@ -322,6 +330,12 @@ $K(u)$ - ядро, т. е. непрерывная функция, являюща
     \end{tabular}
     \caption{Теоретическая вероятность выбросов}
     \label{tab:outlierstheory}
+\end{table}
+\begin{table}[H]
+    \centering
+    \input{}
+    \caption{Caption}
+    \label{tab:my_label}
 \end{table}
 \subsection{Эмпирическая функция распределения}
 \begin{figure}[H]
