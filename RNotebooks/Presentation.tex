@@ -1,0 +1,180 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Presentation},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage[english, russian]{babel}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Presentation}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x\_cont\_segment }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{500}\NormalTok{)}
+\NormalTok{x\_discr\_segment }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{14}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{9}\NormalTok{)}
+\NormalTok{y\_pdf\_norm }\OtherTok{\textless{}{-}} \FunctionTok{dnorm}\NormalTok{(x\_cont\_segment)}
+\NormalTok{y\_pdf\_cauchy }\OtherTok{\textless{}{-}} \FunctionTok{dcauchy}\NormalTok{(x\_cont\_segment)}
+\NormalTok{y\_pdf\_unif }\OtherTok{\textless{}{-}} \FunctionTok{dunif}\NormalTok{(x\_cont\_segment, }\AttributeTok{min =} \SpecialCharTok{{-}}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{), }\AttributeTok{max =} \FunctionTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\NormalTok{y\_pdf\_laplace }\OtherTok{\textless{}{-}} \FunctionTok{dlaplace}\NormalTok{(x\_cont\_segment, }\AttributeTok{m =} \DecValTok{0}\NormalTok{, }\AttributeTok{s =} \DecValTok{1}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\NormalTok{y\_pmf\_poisson }\OtherTok{\textless{}{-}} \FunctionTok{dpois}\NormalTok{(x\_discr\_segment, }\AttributeTok{lambda =} \DecValTok{10}\NormalTok{)}
+\NormalTok{limits }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{14}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\NormalTok{adjust\_coef }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{pval }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(y\_pdf\_norm, y\_pdf\_cauchy, y\_pdf\_laplace, y\_pmf\_poisson, y\_pdf\_unif)}
+\NormalTok{pdom }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(x\_cont\_segment, x\_cont\_segment, x\_cont\_segment, x\_discr\_segment, x\_cont\_segment)}
+\NormalTok{dist\_summary }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}\DecValTok{15}\NormalTok{, }\FunctionTok{list}\NormalTok{())}
+\ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{) \{}
+\NormalTok{    dist }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}\DecValTok{5}\NormalTok{, }\FunctionTok{list}\NormalTok{())}
+\NormalTok{    norm\_sample }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{    pois\_sample }\OtherTok{\textless{}{-}} \FunctionTok{rpois}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{    cauchy\_sample }\OtherTok{\textless{}{-}} \FunctionTok{rcauchy}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{    unif\_sample }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{, }\AttributeTok{min =} \SpecialCharTok{{-}}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{), }\AttributeTok{max =} \FunctionTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\NormalTok{    laplace\_sample }\OtherTok{=} \FunctionTok{rlaplace}\NormalTok{(}\DecValTok{100}\NormalTok{, }\AttributeTok{m =} \DecValTok{0}\NormalTok{, }\AttributeTok{s =} \DecValTok{1}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\NormalTok{    dsamp }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(norm\_sample, cauchy\_sample, laplace\_sample, pois\_sample, unif\_sample)}
+    \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(adjust\_coef)) \{}
+        \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(dsamp)) \{}
+\NormalTok{            kde }\OtherTok{\textless{}{-}} \FunctionTok{density}\NormalTok{(dsamp[[j]], }\AttributeTok{bw =} \StringTok{"nrd"}\NormalTok{, }\AttributeTok{adjust =}\NormalTok{ adjust\_coef[i], }\AttributeTok{n =} \DecValTok{500}\NormalTok{, }
+                \AttributeTok{from =}\NormalTok{ limits[[j]][}\DecValTok{1}\NormalTok{], }\AttributeTok{to =}\NormalTok{ limits[[j]][}\DecValTok{2}\NormalTok{])}
+\NormalTok{            dist[[j]][i] }\OtherTok{\textless{}{-}} \FunctionTok{distFrechet}\NormalTok{(pdom[[j]], pval[[j]], kde}\SpecialCharTok{$}\NormalTok{x, kde}\SpecialCharTok{$}\NormalTok{y, }\AttributeTok{FrechetSumOrMax =} \StringTok{"max"}\NormalTok{)}
+\NormalTok{        \}}
+\NormalTok{    \}}
+\NormalTok{    dist }\OtherTok{\textless{}{-}} \FunctionTok{do.call}\NormalTok{(c, dist)}
+    \ControlFlowTok{for}\NormalTok{ (l }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(dist)) \{}
+\NormalTok{        dist\_summary[[l]][k] }\OtherTok{\textless{}{-}}\NormalTok{ dist[l]}
+\NormalTok{    \}}
+\NormalTok{\}}
+\ControlFlowTok{for}\NormalTok{ (l }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(dist\_summary)) \{}
+\NormalTok{    dist\_summary[[l]] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(dist\_summary[[l]]))}
+\NormalTok{\}}
+\NormalTok{norm\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Norm, $h=h\_\{100\}/2$"}\NormalTok{, }\StringTok{"Norm, $h=h\_\{100\}$"}\NormalTok{, }\StringTok{"Norm, $h=2h\_\{100\}$"}\NormalTok{)}
+\NormalTok{cauchy\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Cauchy, $h=h\_\{100\}/2$"}\NormalTok{, }\StringTok{"Cauchy, $h=h\_\{100\}$"}\NormalTok{, }\StringTok{"Cauchy, $h=2h\_\{100\}$"}\NormalTok{)}
+\NormalTok{laplace\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Laplace, $h=h\_\{100\}/2$"}\NormalTok{, }\StringTok{"Laplace, $h=h\_\{100\}$"}\NormalTok{, }\StringTok{"Laplace, $h=2h\_\{100\}$"}\NormalTok{)}
+\NormalTok{poisson\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Poisson, $h=h\_\{100\}/2$"}\NormalTok{, }\StringTok{"Poisson, $h=h\_\{100\}$"}\NormalTok{, }\StringTok{"Poisson, $h=2h\_\{100\}$"}\NormalTok{)}
+\NormalTok{unif\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Uniform, $h=h\_\{100\}/2$"}\NormalTok{, }\StringTok{"Uniform, $h=h\_\{100\}$"}\NormalTok{, }\StringTok{"Uniform, $h=2h\_\{100\}$"}\NormalTok{)}
+\NormalTok{names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(norm\_names, cauchy\_names, laplace\_names, poisson\_names, unif\_names)}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(names, }\FunctionTok{unlist}\NormalTok{(dist\_summary))}
+\NormalTok{col\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Distribution, $n$ = 100"}\NormalTok{, }\StringTok{"$}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{widehat\{}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{delta\}\_\{dF\}$"}\NormalTok{)}
+\NormalTok{file\_name }\OtherTok{\textless{}{-}} \StringTok{"frechetTests.pdf"}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(df, }\AttributeTok{format =} \StringTok{"latex"}\NormalTok{, }\AttributeTok{col.names =}\NormalTok{ col\_names, }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"c"}\NormalTok{), }\AttributeTok{escape =}\NormalTok{ F) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{column\_spec}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{border\_left =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{column\_spec}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{border\_right =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{save\_kable}\NormalTok{(file\_name)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

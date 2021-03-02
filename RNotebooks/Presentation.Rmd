@@ -1,0 +1,66 @@
+---
+title: "Presentation"
+output:
+  pdf_document:
+    extra_dependencies:
+      babel : ["english", "russian"]
+    keep_tex: true
+    latex_engine: xelatex
+---
+
+```{r include=FALSE}
+library(kableExtra)
+library(kmlShape)
+library(rmutil)
+```
+
+
+```{r tidy = TRUE}
+x_cont_segment <- seq(-4, 4, length.out = 500)
+x_discr_segment <- seq(6, 14, length.out = 9)
+y_pdf_norm <- dnorm(x_cont_segment)
+y_pdf_cauchy <- dcauchy(x_cont_segment)
+y_pdf_unif <- dunif(x_cont_segment, min = -sqrt(3), max = sqrt(3))
+y_pdf_laplace <- dlaplace(x_cont_segment, m = 0, s = 1/sqrt(2))
+y_pmf_poisson <- dpois(x_discr_segment, lambda = 10)
+limits <- list(c(-4,4), c(-4,4), c(-4,4), c(6,14), c(-4,4))
+adjust_coef <- c(0.5, 1, 2)
+pval <- list(y_pdf_norm, y_pdf_cauchy, y_pdf_laplace, y_pmf_poisson, y_pdf_unif)
+pdom <- list(x_cont_segment, x_cont_segment, x_cont_segment, x_discr_segment, x_cont_segment)
+dist_summary <- replicate(15, list())
+for (k in 1:1000) {
+  dist <- replicate(5, list())
+  norm_sample <- rnorm(100)
+  pois_sample <- rpois(100, 10)
+  cauchy_sample <- rcauchy(100)
+  unif_sample <- runif(100, min = -sqrt(3), max = sqrt(3))
+  laplace_sample = rlaplace(100, m = 0, s = 1 / sqrt(2))
+  dsamp <- list(norm_sample, cauchy_sample, laplace_sample, pois_sample, unif_sample)
+  for (i in 1:length(adjust_coef)) {
+    for (j in 1:length(dsamp)) {
+      kde <- density(dsamp[[j]], bw = "nrd", adjust = adjust_coef[i], n = 500, from = limits[[j]][1], to = limits[[j]][2])
+      dist[[j]][i] <- distFrechet(pdom[[j]], pval[[j]], kde$x, kde$y, FrechetSumOrMax = "max")
+    }
+  }
+  dist <- do.call(c, dist)
+  for (l in 1:length(dist)) {
+    dist_summary[[l]][k] <- dist[l]
+  }
+}
+for (l in 1:length(dist_summary)) {
+    dist_summary[[l]] <- mean(unlist(dist_summary[[l]]))
+  }
+norm_names <- c("Norm, $h=h_{100}/2$", "Norm, $h=h_{100}$", "Norm, $h=2h_{100}$")
+cauchy_names <- c("Cauchy, $h=h_{100}/2$", "Cauchy, $h=h_{100}$", "Cauchy, $h=2h_{100}$")
+laplace_names <- c("Laplace, $h=h_{100}/2$", "Laplace, $h=h_{100}$", "Laplace, $h=2h_{100}$")
+poisson_names <- c("Poisson, $h=h_{100}/2$", "Poisson, $h=h_{100}$", "Poisson, $h=2h_{100}$")
+unif_names <- c("Uniform, $h=h_{100}/2$", "Uniform, $h=h_{100}$", "Uniform, $h=2h_{100}$")
+names <- c(norm_names, cauchy_names, laplace_names, poisson_names, unif_names)
+df <- data.frame(names, unlist(dist_summary))
+col_names <- c("Distribution, $n$ = 100", "$\\widehat{\\delta}_{dF}$")
+file_name <- "frechetTests.pdf"
+knitr::kable(df, format="latex", col.names = col_names, align = c("l","c"), escape = F)%>%
+column_spec(1, border_left = T) %>%
+column_spec(2, border_right = T) %>%
+save_kable(file_name)
+```
